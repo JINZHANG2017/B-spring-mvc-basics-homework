@@ -6,6 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -13,15 +18,15 @@ import lombok.NoArgsConstructor;
 public class User {
 
     private Integer id;
+    @NotNull
+    @Pattern(regexp = "^[0-9a-zA-Z_]{3,10}$")
     private String username;
+    @NotNull
+    @Size(max = 12,min = 5)
     private String password;
+    @Email
     private String email;
 
-    public boolean equalsTo(User u){
-        if(username.equals(u.getUsername())&&password.equals(u.getPassword())&&email.equals(u.getEmail())){
-            return true;
-        }
-        return false;
-    }
+
 
 }

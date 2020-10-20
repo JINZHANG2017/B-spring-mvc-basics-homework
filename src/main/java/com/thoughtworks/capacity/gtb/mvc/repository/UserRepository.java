@@ -13,7 +13,7 @@ public class UserRepository {
 
     public void register(User user) throws MyException {
         for(User u:userList){
-            if(u.equalsTo(user)){
+            if(u.getUsername().equals(user.getUsername())){
                 //用户已存在
                 throw new MyException("user already exists");
             }

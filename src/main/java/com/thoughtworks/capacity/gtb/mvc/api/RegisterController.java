@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class RegisterController {
     RegisterService registerService;
 
     @PostMapping("/register")
-    public void register(@RequestBody User user) throws MyException {
+    public void register(@RequestBody @Valid User user) throws MyException {
         registerService.register(user);
     }
 }
