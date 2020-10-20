@@ -22,4 +22,13 @@ public class UserRepository {
         user.setId(id);
         userList.add(user);
     }
+
+    public User login(String username,String password){
+        for(User user:userList){
+            if(user.getPassword().equals(password)&&user.getUsername().equals(username)){
+                return user;
+            }
+        }
+        throw new MyException("用户名或密码错误！");
+    }
 }

@@ -18,13 +18,11 @@ import javax.validation.constraints.Size;
 public class User {
 
     private Integer id;
-    @NotNull
-    @Pattern(regexp = "^[0-9a-zA-Z_]{3,10}$")
+    @Pattern(regexp = "^[0-9a-zA-Z_]{3,10}$",message = "用户名必须为3-10位数字字母或下划线")
     private String username;
-    @NotNull
-    @Size(max = 12,min = 5)
+    @Size(max = 12,min = 5,message = "密码必须为5-12位")
     private String password;
-    @Email
+    @Email(message = "邮件格式必须符合要求")
     private String email;
 
 

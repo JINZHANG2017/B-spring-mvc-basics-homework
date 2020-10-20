@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Data
-public class MyException extends Exception {
+public class MyException extends RuntimeException {
     private String message;
 }
